@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Crea Tabella</title>
+
+<script>
+function aggiungiCampo() {
+    let container = document.getElementById("campi");
+
+    let div = document.createElement("div");
+
+    div.innerHTML = `
+        Nome campo: <input type="text" name="nome_campo[]" required>
+        Tipo:
+        <select name="tipo_campo[]">
+            <option value="INT">INT</option>
+            <option value="VARCHAR(255)">VARCHAR(255)</option>
+            <option value="TEXT">TEXT</option>
+            <option value="DATE">DATE</option>
+        </select>
+        <br><br>
+    `;
+
+    container.appendChild(div);
+}
+</script>
+
+</head>
+
+<body>
+
+<h2>Creazione Tabella MySQL</h2>
+
+<form action="crea_tabella.php" method="POST">
+
+    Nome tabella:
+    <input type="text" name="nome_tabella" required>
+    <br><br>
+
+    <div id="campi">
+        <h3>Campi</h3>
+
+        Nome campo:
+        <input type="text" name="nome_campo[]" required>
+
+        Tipo:
+        <select name="tipo_campo[]">
+            <option value="INT">INT</option>
+            <option value="VARCHAR(255)">VARCHAR(255)</option>
+            <option value="TEXT">TEXT</option>
+            <option value="DATE">DATE</option>
+        </select>
+
+        <br><br>
+    </div>
+
+    <button type="button" onclick="aggiungiCampo()">Aggiungi Campo</button>
+
+    <br><br>
+    <input type="submit" value="Crea Tabella">
+
+</form>
+
+</body>
+</html>
